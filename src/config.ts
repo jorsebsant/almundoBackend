@@ -12,7 +12,7 @@ export class Config {
     app.use((req: Request, res: Response|any, next: NextFunction) => {
       res.header("Access-Control-Allow-Origin", "*");
       res.header('Access-Control-Allow-Methods',' GET,PUT,POST,DELETE');
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, token, X-AUTH-TOKEN");
+     // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, token, X-AUTH-TOKEN");
       next();
     });
   }

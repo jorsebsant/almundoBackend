@@ -2,8 +2,7 @@ import * as express from "express";
 import { Config } from './config';
 
 // Routes
-import { Login } from './routes/login.route';
-import { Products } from './routes/products.route';
+import { Hotel } from './routes/hotel.route';
 
 export class Server {
   public app:any;
@@ -26,9 +25,7 @@ export class Server {
     const router: express.Router = express.Router();
 
     this.app.use(router);
-
-    Login.endPoint(router);
-    Products.endPoint(router);
+    Hotel.endPoint(router);
   }
 
   public start() {

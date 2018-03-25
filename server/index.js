@@ -2,8 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const config_1 = require("./config");
-const login_route_1 = require("./routes/login.route");
-const products_route_1 = require("./routes/products.route");
+const hotel_route_1 = require("./routes/hotel.route");
 class Server {
     constructor(port = 8008) {
         this.app = express();
@@ -17,8 +16,7 @@ class Server {
     setEndPoints() {
         const router = express.Router();
         this.app.use(router);
-        login_route_1.Login.endPoint(router);
-        products_route_1.Products.endPoint(router);
+        hotel_route_1.Hotel.endPoint(router);
     }
     start() {
         this.app.listen(this.port, () => {
