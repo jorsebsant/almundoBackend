@@ -9,12 +9,22 @@ export class Hotel {
 
     router.get("/api/hotel/search", (req: Request, res: Response, next: NextFunction) => {
       const data = response;
-      const filterParam = req.query.name;
-      const filtered = _.filter(data, function(hotel) {
-        return hotel.name.indexOf(filterParam) > -1;
-      });
+      const filterParam = req.query;
+      const filtered = this.filterQuery(data, filterParam);
       res.json(filtered);
     });
+  }
+
+  public static filterQuery(data, filterParam) {
+    const filtered = _.filter(data, function(hotel) {
+      if(!filterParam.stars){
+        return hotel.name.toLowerCase().indexOf(filterParam.name.toLowerCase()) > -1;
+      }else{
+        return hotel.name.toLowerCase().indexOf(filterParam.name.toLowerCase()) > -1 &&
+               hotel.stars == filterParam.stars;
+      }
+    });
+    return filtered;
   }
 
 }
